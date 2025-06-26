@@ -1,0 +1,1142 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="FgHcQ5wFUlNBN3AQslm39GBsHyfwRh79CQNzNbWymXA" />
+  <title>Lmarket</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/avis.css">
+  <link rel="stylesheet" href="/back.css">
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#000000">
+  <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+  // Vérifie les mises à jour toutes les 1 heure (ajustable)
+  setInterval(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration()
+        .then(reg => {
+          if (reg) reg.update().then(() => console.log("Mise à jour vérifiée"));
+        });
+    }
+  }, 3600000); // 1 heure en millisecondes
+</script>
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker enregistré !'))
+        .catch(err => console.log('Échec :', err));
+    });
+  }
+</script>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGSDGQ543W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BGSDGQ543W');
+</script>
+</head>
+
+<body>
+  <header>
+    <!--L'en tete du site-->
+    <h1><img src="/20250613_003237.png" width="200" height="60" alt="Logo du site"></h1>
+    <div id="add-to-homescreen" class="a2hs-button">
+      <a href="https://app-lmarket.netlify.app" style="text-decoration: none; color: white;"><span><strong>Télecharger l'application</strong></span></a>
+</div>
+    <a href="info.html" class="info-btn">INFO</a>
+  <!-- Bouton pour ouvrir le sélecteur -->
+<button id="open-categories" class="categories-btn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path d="M3 6h18M3 12h18M3 18h18"/>
+  </svg>
+</button>
+<!-- Fenêtre modale des catégories -->
+<div id="categories-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Nos Catégories</h3>
+    <div class="categories-list">
+      <button data-category="all">Tous les produits</button>
+      <button data-category="livres gratuits">Livres gratuits</button>
+      <button data-category="livres payants">Livres payants</button>
+      <button data-category="chaussures">Chaussures</button>
+      <button data-category="baskets">Baskets</button>
+      <button data-category="vetements">Vêtements</button>
+      <button data-category="phones">Phones</button>
+      <button data-category="accessoires">Accessoires</button>
+      <button data-category="montres">Montres</button>
+      <button data-category="habillements">Habillement</button>
+      <button data-category="ordinateurs">Ordinateurs</button>
+    </div>
+  </div>
+</div>  
+  </header> 
+  
+<!-- contenaire pour tous les articles -->  
+  <div class="content">
+    
+    
+    <section class="bio" style="text-align:center; padding: 20px; background-color: #f8f8f8; border-bottom: 1px solid #ccc;">
+  <p>Bienvenue sur <strong>L.MARKET</strong><img src="/20250618_191502.png" width="15" height="15" alt="certification"></p>
+      <p>Découvrez des articles de toutes sortes <strong>livres e-books, chaussures, accesoires, phones, habillements...</strong><br><a style="color:green;"><strong>Gratuits</strong></a> & <a style="color: rgb(0, 0, 255);"><strong>Payants</strong></a>
+ </p>
+</section>
+    <!-- BARRE DE RECHERCHE --> 
+    <div class="search-container">
+  <input type="text" id="search-input" placeholder="Rechercher un produit...">
+  <button id="search-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+    </svg>
+  </button>
+</div>
+    
+    <div class="search-suggestions hidden" id="search-suggestions"></div>
+    
+  
+    <div class="dernier">
+    <h2>Derniers articles</h2>
+    </div>
+      <div class="actions">
+     <a href="/Payant.html" class="btn btn-payant" target="_blank">Article Payant</a>
+    <a href="/Gratuit.html" class="btn btn-gratuit" target="_blank">Article Gratuit</a>
+  </div>
+</div><br>
+    <!-- LES NOUVELES ARTICLES DOIVENT ETRE COLLES ICI -->
+  
+  
+  
+    <!-- ARTICLE PAYANT -->
+    <!-- Adidas campus -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Adidas campus" 
+  data-id="006"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Adidas Campus</strong>   
+  <p>Basket Adidas Campus original Tous les couleurs.  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_151445.jpg" alt="image adidas campus">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Adidas Campus noir-blanc" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">           
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+       <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="006">Copier le lien</button>
+       </div>
+       </div>
+   <!-- ARTICLE PAYANT -->
+    <!-- Adidas campus -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Adidas campus" 
+  data-id="005"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Adidas Campus</strong>   
+  <p>Basket Adidas Campus original Tous les couleurs.  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_151024.jpg" alt="image adidas campus">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Adidas Campus" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="005">Copier le lien</button>
+       </div>
+       </div>
+  
+  
+   <!-- ARTICLE GRATUIT -->
+    <!-- le secret du developpement personnel -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="le secret du developpement personnel" 
+      data-id="023" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>Le secret du developpement personnel.</strong>
+      
+      
+      <br><img src="/Screenshot_20250619-101911.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/https://s1.welib-public.org/s2/zlib3/annas_archive_data__aacid__zlib3_files__20240807T223208Z--20240807T223209Z/aacid__zlib3_files__20240807T223208Z__29323999__2pppeXYrNdVwVrJ3BfKFCx~/1750338897.zF7si6zWT366QIz9UH_EpQ/Les secrets du développement personnel -- Alexandre Nadeau -- ( WeLib.org ).pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="023">Copier le lien</button>
+    </div>
+       </div>
+    <!-- ARTICLE PAYANT -->
+    <!-- Chaînette couple -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette couple" 
+  data-id="013"
+  data-class="chaînette couple"
+  data-phone="+243988400578"
+  data-prince="9$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette de couple</strong>   
+  <p>Chaînette de couple.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_154527.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">9$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette coeur de couple" 
+            data-price="9$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+         <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="013">Copier le lien</button>
+     </div>
+       </div>
+  
+   <!-- ARTICLE PAYANT -->
+    <!-- Air force tout blanc -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Basket Nike air force" 
+  data-id="001"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Basket Air Force</strong>   
+  <p>Basket Air force originals Tous les couleurs  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_153235.jpg" alt="image R-force">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Basket Nike air force tout blanc" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="001">Copier le lien</button>
+       </div>
+       </div>
+  
+  
+   <!-- ARTICLE GRATUIT -->
+    <!-- LA MAITRISE DE SOI -->
+    <div class="product" 
+      data-category="LA MAITRISE DE SOI" 
+      data-name="" 
+      data-id="025" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>LA MAITRISE DE SOI</strong>
+      
+      <br><img src="/Screenshot_20250624-135248.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/9791036910784.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="025">Copier le lien</button>
+    </div>
+       </div>
+  
+   <!-- ARTICLE GRATUIT -->
+    <!-- Mein kampf (mon combat) - Adolf hutler -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="Mein kampf (mon combat) - Adolf hutler" 
+      data-id="024" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>Mein kampf (mon combat) - Adolf hutler</strong>
+      
+      <br><img src="/Screenshot_20250624-135353.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/Hitler-combat-1.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="024">Copier le lien</button>
+    </div>
+    </div
+
+   <!-- ARTICLE PAYANT -->
+    <!-- Casque baladeur P9 -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Casque baladeur P9" 
+  data-id="003"
+  data-class="Casque baladeur P9"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Casque baladeur P9</strong>   
+        <br><strong><a style="color:red;">LIVRAISON GRATUITE</a></strong></p>
+  
+  <br><img src="/20250618_130520.jpg" alt="image casque R9">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Casque baladeur P9" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+         <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="003">Copier le lien</button>
+       </div>
+       </div>
+  
+
+  <!-- ARTICLE GRATUIT -->
+    <!-- Bonjour saint esprit Benny hinn -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="Bonjour saint esprit Benny hinn" 
+      data-id="031" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>Bonjour saint esprit Benny hinn
+</strong>
+      <br><img src="/Screenshot_20250624-135022.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/pdfcoffee.com_bonjour-saint-esprit-pdf-pdf-free.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="031">Copier le lien</button>
+    </div>
+       </div>
+  
+  <!-- ARTICLE GRATUIT -->
+    <!-- Comment se faire des amis -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="Comment se faire des amis" 
+      data-id="030" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>Comment se faire des amis – Dale Carnegie</strong>
+      
+      <br><img src="/Screenshot_20250624-134423.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/cmntamissale.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="030">Copier le lien</button>
+    </div>
+       </div>
+   <!-- ARTICLE GRATUIT -->
+    <!-- 101 idées pour devenir votre propre patron -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="101 idées pour devenir votre propre patron" 
+      data-id="029" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>101 idées pour devenir votre propre patron</strong>
+      
+      <br><img src="/Screenshot_20250624-134727.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/9782412051337(0).pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="029">Copier le lien</button>
+    </div>
+       </div>
+
+  <!-- ARTICLE PAYANT -->
+    <!-- Chaînette couple -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette couple" 
+  data-id="014"
+  data-class="chaînette couple"
+  data-phone="+243988400578"
+  data-prince="9$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette de couple</strong>   
+  <p>Chaînette de couple.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_154703.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">9$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette coeur de couple" 
+            data-price="9$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="014">Copier le lien</button>
+    </div>
+       </div>
+
+ <!-- ARTICLE PAYANT -->
+    <!-- Chaînette homme -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette homme" 
+  data-id="010"
+  data-class="chaînette homme"
+  data-phone="+243988400578"
+  data-prince="5$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette homme</strong>   
+  <p>Chaînette homme.  <br>Trois catégories: assier inoxydable, doré, argenté</p>
+  
+  <br><img src="/20250618_154034.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">5$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Chaînette homme" 
+            data-price="5$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+         <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="010">Copier le lien</button>
+    </div>
+       </div>
+
+  <!-- ARTICLE PAYANT -->
+    <!-- Montre rolex -->
+<div class="product" 
+  data-category="montres"
+  data-name="montre rolex" 
+  data-id="007"
+  data-class="montres rolex"
+  data-phone="+243988400578"
+  data-prince="10$/15$">
+    <a class="subtext">Nom de l'article:</a><strong>Montre Rolex</strong>   
+  <p>Montre Rolex original.  <br> Montre + bracelet=15$ <br> Montre sans bracelet=10$</p>
+        
+  
+  <br><img src="/20250618_155519.jpg" alt="image rolex">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$/15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Montre rolex" 
+            data-price="10$/15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+         <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="007">Copier le lien</button>
+    </div>
+       </div>
+
+<!-- ARTICLE GRATUIT -->
+    <!--REFLECHISSEZ ET DEVENEZ RICHE - Napoleon hil-->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="REFLECHISSEZ ET DEVENEZ RICHE - Napoleon hill" 
+      data-id="036" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>REFLECHISSEZ ET DEVENEZ RICHE - Napoleon hill</strong>
+      
+      <br><img src="/Screenshot_20250624-134044.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/r60huyh69x0030bujfmvm2kcllk6.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+         <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="036">Copier le lien</button>
+    </div>
+       </div>
+    
+  
+  <!-- ARTICLE GRATUIT -->
+    <!-- Lentreprise-du-21e-siecle_-Robert.T.pdf -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="Lentreprise du 21e siecle Robert" 
+      data-id="033" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>Lentreprise du 21e siecle -Robert.T Kiyosaki</strong>
+      
+      <br><img src="/Screenshot_20250624-134148.jpg" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/Lentreprise-du-21e-siecle_-Robert.T.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="033">Copier le lien</button>
+    </div>
+       </div> 
+
+ <!-- ARTICLE PAYANT -->
+    <!-- Casque baladeur P9 -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Casque baladeur P9" 
+  data-id="004"
+  data-class="Casque baladeur P9"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Casque baladeur P9</strong>   
+        <br><strong><a style="color:red;">LIVRAISON GRATUITE</a></strong></p>
+  
+  <br><img src="/20250618_130755.jpg" alt="image casque R9">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Casque baladeur P9" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="004">Copier le lien</button>
+    </div>
+       </div>
+
+ <!-- ARTICLE PAYANT -->
+    <!-- Chaînette homme -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette homme" 
+  data-id="011"
+  data-class="chaînette homme"
+  data-phone="+243988400578"
+  data-prince="5$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette homme</strong>   
+  <p>Chaînette homme.  <br>Trois catégories: assier inoxydable, doré, argenté</p>
+  
+  <br><img src="/20250618_154306.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">5$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Chaînette homme enroulé" 
+            data-price="5$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+         <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="011">Copier le lien</button>
+    </div>
+       </div>
+
+
+ <!-- ARTICLE PAYANT -->
+    <!-- Montre rolex -->
+<div class="product" 
+  data-category="montres"
+  data-name="montre rolex" 
+  data-id="008"
+  data-class="montres rolex"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Montre Rolex</strong>   
+  <p>Montre Rolex original.  <br> Montre + bracelet=15$ <br> Montre sans bracelet=10$</p>
+        
+  
+  <br><img src="/20250618_155312.jpg" alt="image rolex">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Montre rolex" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="008">Copier le lien</button>
+    </div>
+       </div>
+
+<!-- ARTICLE GRATUIT -->
+    <!-- l'homme le plus riche de babylone -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="L'homme le plus riche de babylone" 
+      data-id="035" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong>L'HOMME LE PLUS RICHE DE BABYLONE</strong>
+      
+      <br><img src="/Screenshot_20250624-134616.jpg" alt="l'homme le plus riche de babylone">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/Lhomme-le-plus-riche-de-Babylone-George-S.-Clason.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="035">Copier le lien</button>
+    </div>
+       </div>
+
+   <!-- ARTICLE PAYANT -->
+    <!-- Air force tout noir -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Basket Nike air force" 
+  data-id="001"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Basket Air Force</strong>   
+  <p>Basket Air force originals Tous les couleurs  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/BackgroundEraser_20241021_011350279.png" alt="image R-force">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Basket Nike air force" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="001">Copier le lien</button>
+    </div>
+       </div>
+  
+<!-- ARTICLE PAYANT -->
+    <!-- Chaînette homme -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette homme" 
+  data-id="011"
+  data-class="chaînette homme"
+  data-phone="+243988400578"
+  data-prince="5$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette homme</strong>   
+  <p>Chaînette homme.  <br>Trois catégories: assier inoxydable, doré, argenté</p>
+  
+  <br><img src="/20250618_154151.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">5$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Chaînette homme enroulé" 
+            data-price="5$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="011">Copier le lien</button>
+    </div>
+       </div>
+
+   <!-- ARTICLE PAYANT -->
+    <!-- Adidas campus -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Adidas campus" 
+  data-id="009"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Adidas Campus</strong>   
+  <p>Basket Adidas Campus original Tous les couleurs.  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_151529.jpg" alt="image adidas campus">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Adidas Campus tout blanc" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="009">Copier le lien</button>
+    </div>
+       </div>
+
+  <!-- ARTICLE PAYANT -->
+    <!-- Chaînette couple -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette couple" 
+  data-id="012"
+  data-class="chaînette couple"
+  data-phone="+243988400578"
+  data-prince="9$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette de couple</strong>   
+  <p>Chaînette de couple.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_154914.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">9$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette coeur de couple" 
+            data-price="9$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+          <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="012">Copier le lien</button>
+    </div>
+       </div>
+
+  <!-- ARTICLE PAYANT -->
+    <!-- Chaînette couple -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette couple" 
+  data-id="015"
+  data-class="chaînette couple"
+  data-phone="+243988400578"
+  data-prince="9$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette de couple cadena</strong>   
+  <p>Chaînette de couple.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_154804.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">9$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette cadena de couple" 
+            data-price="9$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="015">Copier le lien</button>
+    </div>
+       </div>
+    <!-- ARTICLE GRATUIT -->
+    <!-- Livre ma prof de math -->
+    <div class="product" 
+      data-category="livres gratuits" 
+      data-name="Livre ma prof de Math" 
+      data-id="002" 
+      data-class="Livre">
+      <a class="subtext">Nom de l'article:</a><strong> Livre Ma prof de Math</strong>
+      <p>Voyez comment la vie d'un homme peut être pertuber lorsqu'on melange les études et la vie amoureuse.</p>
+      
+      <br><img src="/20240907_075049.png" alt="Ma prof de math">
+      <div class="actions">
+        <div class="btn btn-free">GRATUIT</div>
+        <a href="/Ma Prof de Math E-book, par Tristan kimbimbi.pdf" class="btn btn-download" download>TÉLÉCHARGER</a>
+      </div>
+      <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="002">Copier le lien</button>
+    </div>
+       </div>
+    
+    <!-- ARTICLE PAYANT -->
+    <!-- Adidas campus -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Adidas campus" 
+  data-id="016"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Adidas Campus</strong>   
+  <p>Basket Adidas Campus original Tous les couleurs.  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_151629.jpg" alt="image adidas campus">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Adidas Campus noir-blanc" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">           
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="016">Copier le lien</button>
+    </div>
+       </div>
+  
+    <!-- ARTICLE PAYANT -->
+    <!-- Adidas campus -->
+<div class="product" 
+  data-category="baskets" 
+  data-name="Adidas campus" 
+  data-id="017"
+  data-class="baskets"
+  data-phone="+243988400578"
+  data-prince="15$">
+    <a class="subtext">Nom de l'article:</a><strong>Adidas Campus</strong>   
+  <p>Basket Adidas Campus original Tous les couleurs.  <br> Pointure: 35-45'
+        <br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_151341.jpg" alt="image adidas campus">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">15$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="Adidas Campus noir-blanc" 
+            data-price="15$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">           
+        <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="017">Copier le lien</button>
+    </div>
+       </div>
+    
+<!-- ARTICLE PAYANT -->
+    <!-- Chaînette personaliser -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette personalisé" 
+  data-id="018"
+  data-class="chaînette personalise"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette personalisé</strong>   
+  <p>Offrez-vous cette chaînette personalisé avec votre nom écrit dessus😍.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_153741.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette personalisé" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="018">Copier le lien</button>
+    </div>
+       </div>
+
+<!-- ARTICLE PAYANT -->
+    <!-- Chaînette personaliser -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette personalisé" 
+  data-id="019"
+  data-class="chaînette personalise"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette personalisé</strong>   
+  <p>Offrez-vous cette chaînette personalisé avec votre nom écrit dessus😍.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_153512.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette personalisé" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="019">Copier le lien</button>
+    </div>
+       </div>
+
+<!-- ARTICLE PAYANT -->
+    <!-- Chaînette personaliser -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette personalisé" 
+  data-id="020"
+  data-class="chaînette personalise"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette personalisé</strong>   
+  <p>Offrez-vous cette chaînette personalisé avec votre nom écrit dessus😍.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_153904.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette personalisé" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="020">Copier le lien</button>
+    </div>
+       </div>
+
+
+<!-- ARTICLE PAYANT -->
+    <!-- Chaînette personaliser -->
+<div class="product" 
+  data-category="accessoires" 
+  data-name="Chaînette personalisé" 
+  data-id="021"
+  data-class="chaînette personalise"
+  data-phone="+243988400578"
+  data-prince="10$">
+    <a class="subtext">Nom de l'article:</a><strong>Chaînette personalisé</strong>   
+  <p>Offrez-vous cette chaînette personalisé avec votre nom écrit dessus😍.<br><strong><a style="color:red;">LIVRAISON 5000FC</a></strong></p>
+  
+  <br><img src="/20250618_153646.jpg" alt="image chaînette">
+  <p class="subtext">Lorsque vous appuyer sur ACHETER, vous allez êtres diriger sur Whatsapp pour finaliser l'achat.</p>
+  <div class="actions">
+    <div class="btn btn-prix">10$</div>
+    <button class="btn btn-whatsapp whatsapp-order-btn" 
+            data-product="chaînette personalisé" 
+            data-price="10$"
+            data-phone="+243988400578">
+      ACHETER
+    </button>
+  </div>
+  
+  <strong><p>Partagez l'article</p></strong>
+ 
+    <div class="share-buttons">
+       <button class="share-btn" data-share="whatsapp">Whatsapp</button>
+      <button class="share-btn" data-share="facebook">facebook</button>
+      <button class="share-btn" data-share="twitter">twitter</button>
+      <button class="copy-link-btn" data-id="021">Copier le lien</button>
+    </div>
+       </div>
+
+<!-- Message "Article non trouvé" -->
+    <div id="no-results-message" class="hidden">
+        <p>Aucun article ne correspond à votre recherche.</p>
+    </div>
+  <button id="back-to-top" aria-label="Retour en haut">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+  
+  <div class="feedback-cta">
+  <a href="avis.html" class="feedback-btn">
+    <span class="emoji">🗨️</span>
+    <span class="text">Voir les commentaires des clients</span>
+    <span class="arrow">→</span>
+  </a>
+  <p class="subtext">Découvrez ce que nos clients adorent !<br>Et dites nous ce que vous adorez !</p>
+</div>
+  
+  </div>  <footer>
+    &copy; 2025 L.market - Tous droits réservés
+  </footer>
+<script src="/script.js"></script>
+<script src="/share.js"></script>
+</body>
+</html>

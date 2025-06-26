@@ -1,0 +1,388 @@
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; background: #e0eaff; color: #000;}
+    header {
+      background: #7aa5ff;
+      color: black;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {font-size: 24px; font-weight: bold;}
+    header a.info-btn {
+      background: #ccc;
+      padding: 5px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+  
+    .content {
+      margin-top: 70px;
+      padding: 20px;
+    }
+     .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+#search-input {
+    padding: 10px 15px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+#search-input {
+    padding: 10px 15px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #7aa5ff;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#search-button:hover {
+    background-color: #45a049;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+/* Style pour les produits cachés */
+.product.hidden {
+    display: none;
+}
+
+
+    .product {
+      border: 2px solid #999;
+      padding: 10px;
+      margin-bottom: 20px;
+      background: #fff;
+    }
+    .product img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+    .actions {
+      display: flex;
+      margin-top: 10px;
+    }
+    .actions .btn {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-download {background: #00a2ff;}
+    .btn-free {background: #28a745;}
+    .btn-gratuit {background: #25d366;}
+    .btn-payant {background: #007bff;}
+    .btn-prix {background: #007bff;}
+    .btn-whatsapp {background: #25d366;}
+  footer {
+      background: #ccc;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+  .certif{
+    width: 15px;
+    height: 15px;
+  }
+  /* Ajoutez ces styles à la fin de votre fichier CSS */
+
+#no-results-message {
+    text-align: center;
+    padding: 30px;
+    font-size: 18px;
+    color: #666;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+#no-results-message p {
+    margin: 0;
+}
+
+.hidden {
+    display: none !important;
+}
+  
+  .search-suggestions {
+    position: absolute;
+    width: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    margin-top: -4px;
+}
+
+.search-suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.search-suggestion-item:hover {
+    background-color: #f5f5f5;
+}
+
+.search-suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.hidden {
+    display: none;
+}
+  
+  .share-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.share-btn:hover {
+    opacity: 0.8;
+}
+
+.share-btn[data-share="facebook"] {
+    background-color: #3b5998;
+    color: white;
+}
+
+.share-btn[data-share="twitter"] {
+    background-color: #1da1f2;
+    color: white;
+}
+
+  .share-btn[data-share="whatsapp"] { 
+    background: #25D366;
+    color: white;
+}
+  
+.a2hs-button {
+  display: none; /* Caché par défaut */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2d3748;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  align-items: center;
+  gap: 8px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.a2hs-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Affiche seulement sur mobile */
+@media (max-width: 768px) {
+  .a2hs-button {
+    display: flex;
+  }
+}
+.a2hs-button {
+  
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+
+/* Bouton principal */
+.categories-btn {
+  position: fixed;
+  top: 20px;
+  left: 225px;
+  padding: 10px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 900;
+}
+
+/* Fenêtre modale */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.categories-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.categories-list button {
+  padding: 12px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.categories-list button:hover {
+  background: #e0e0e0;
+}
+
+.close-modal {
+  position: absolute;
+  color: white;
+  top: 15px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.back-to-top-container {
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.back-to-top-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #3a86ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.back-to-top-btn:hover {
+  background: #2667cc;
+}
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-whatsapp:hover {
+    background: #128C7E;
+  }
+
+/* Accentuation du produit ciblé */
+.product.highlight {
+  border: 3px solid #ff0000;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+  animation: blink 5s ease-in-out 3;
+}
+
+@keyframes blink {
+  0% { box-shadow: 0 0 0 rgba(255, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 0, 0, 1); }
+  100% { box-shadow: 0 0 0 rgba(255, 0, 0, 0.5); }
+}
+
+@media (display-mode: fullscreen) {
+  body {
+    padding-top: 0 !important; /* Supprime les marges résiduelles */
+  }
+}

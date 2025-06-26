@@ -1,0 +1,85 @@
+.feedback-cta {
+  text-align: center;
+  margin: 40px 0;
+  padding: 20px;
+}
+
+.feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #6e45e2 0%, #89d4cf 100%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(110, 69, 226, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feedback-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(110, 69, 226, 0.4);
+}
+
+.feedback-btn:active {
+  transform: translateY(1px);
+}
+
+.emoji {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+.arrow {
+  transition: transform 0.3s;
+}
+
+.feedback-btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.subtext {
+  margin-top: 12px;
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Effet brillant au survol */
+.feedback-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0) 45%,
+    rgba(255,255,255,0.8) 50%,
+    rgba(255,255,255,0) 55%
+  );
+  transform: rotate(30deg) translate(-20px, -40px);
+  opacity: 0;
+}
+
+.feedback-btn:hover::after {
+  animation: shine 1.5s ease-out infinite;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% { transform: rotate(30deg) translate(-20px, -40px); }
+  100% { transform: rotate(30deg) translate(20px, 40px); }
+}
+

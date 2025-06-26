@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commentaires en temps réel</title>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BGSDGQ543W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BGSDGQ543W');
+</script>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: Arial, sans-serif; background: #e0eaff; color: #000;}
+    header {
+      background: #7aa5ff;
+      color: black;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {font-size: 24px; font-weight: bold;}
+    header a.info-btn {
+      background: #ccc;
+      padding: 5px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+    }
+    h3 {
+      color: #2980b9;
+      margin-top: 30px;
+    }
+    #comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    textarea {
+      resize: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      background-color: white;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      background-color: #7aa5ff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #00cc6e;
+    }
+    #comment-list {
+      margin-top: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .comment {
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .comment-content {
+      flex: 1;
+    }
+    .date {
+      font-size: 12px;
+      color: #ccc;
+      margin-top: 5px;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .like-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #0077cc;
+    }
+    .delete-btn {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1><img src="20250613_003237.png" width="200" height="60" alt="Logo du site"></h1>
+  <a href="index.html" class="info-btn">HOME</a>
+</header> <br><br><br><br>
+
+<h3>Votre avis ou commentaire nous intéresse, dites-le nous ici.</h3>
+<form id="comment-form">
+  <textarea id="comment-text" placeholder="Votre nom et votre avis..." rows="4"></textarea>
+  <button type="submit"><strong>PARTAGEZ VOTRE AVIS</strong></button>
+</form>
+
+<h3>LES COMMENTAIRES ET AVIS</h3>
+<div id="comment-list"></div>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, push, onChildAdded, remove, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDUHCTSJft8yKAMA5yxxA9P18fZyHtv-dQ",
+    authDomain: "commentaire-5a753.firebaseapp.com",
+    databaseURL: "https://commentaire-5a753-default-rtdb.firebaseio.com",
+    projectId: "commentaire-5a753",
+    storageBucket: "commentaire-5a753.appspot.com",
+    messagingSenderId: "1009050897193",
+    appId: "1:1009050897193:web:d76b9c3fd0572870268538",
+    measurementId: "G-EMSGZR89L1"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const commentsRef = ref(db, "commentaires");
+
+  // Créer un ID unique pour chaque utilisateur s'il n'existe pas déjà
+  let userId = localStorage.getItem("userId");
+  if (!userId) {
+    userId = crypto.randomUUID();
+    localStorage.setItem("userId", userId);
+  }
+
+  // Envoi d’un commentaire
+  const form = document.getElementById("comment-form");
+  const textarea = document.getElementById("comment-text");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = textarea.value.trim();
+    if (text !== "") {
+      const date = new Date().toLocaleString("fr-FR");
+      const avatarUrl = `https://fr.pngtree.com/freepng/avatar-icon-profile-icon-member-login-vector-isolated_5247852.html`;
+      push(commentsRef, {
+        text,
+        date,
+        userId,
+        likes: 0,
+        avatar: avatarUrl
+      });
+      textarea.value = "";
+    }
+  });
+
+  const commentList = document.getElementById("comment-list");
+
+  onChildAdded(commentsRef, (data) => {
+    const { text, date, userId: authorId, likes, avatar } = data.val();
+    const commentId = data.key;
+
+    const div = document.createElement("div");
+    div.className = "comment";
+    div.innerHTML = `
+      <div class="avatar" style="
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #7aa5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+">
+  ${userId === authorId ? "Moi" : "👤"}
+</div>
+      <div class="comment-content">
+        <p>${text}</p>
+        <div class="date">${date}</div>
+        <div class="actions">
+          <button class="like-btn" data-id="${commentId}">❤️ ${likes}</button>
+          ${userId === authorId ? `<button class="delete-btn" data-id="${commentId}">🗑️ Supprimer</button>` : ""}
+        </div>
+      </div>
+    `;
+
+    // Gérer les likes
+    div.querySelector(".like-btn").addEventListener("click", () => {
+      const commentRef = ref(db, `commentaires/${commentId}`);
+      update(commentRef, { likes: likes + 1 });
+      location.reload();
+    });
+
+    // Gérer la suppression
+    const deleteBtn = div.querySelector(".delete-btn");
+    if (deleteBtn) {
+      deleteBtn.addEventListener("click", () => {
+        const commentRef = ref(db, `commentaires/${commentId}`);
+        remove(commentRef);
+        location.reload();
+      });
+    }
+
+    commentList.prepend(div);
+  });
+</script>
+
+<footer>
+  &copy; 2025 L.market - Tous droits réservés
+</footer>
+</body>
+</html>
