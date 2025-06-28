@@ -207,3 +207,12 @@ function downloadPDF(url) {
     })
     .catch(() => alert('Hors ligne : PDF non disponible'));
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuButton = document.getElementById('menuButton');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    menuButton.addEventListener('click', function() {
+        menuOverlay.classList.toggle('active');
+    });
+});

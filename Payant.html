@@ -22,18 +22,17 @@
     <!--L'en tete du site-->
     <h1><img src="20250613_003237.png" width="200" height="60" alt="Logo du site"></h1>
     
-    <a href="info.html" class="info-btn">INFO</a>
-  <!-- Bouton pour ouvrir le sélecteur -->
-<button id="open-categories" class="categories-btn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-    <path d="M3 6h18M3 12h18M3 18h18"/>
-  </svg>
-</button>
-<!-- Fenêtre modale des catégories -->
-<div id="categories-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h3>Nos Catégories</h3>
+       <button id="menuButton" class="menu-button">
+            <span class="menu-icon">  <img src="20250627_203055.png" width="50" height="30" alt="menu" ></span> <!-- Icône de menu -->
+      </button>
+ </header>     
+    <div id="menuOverlay" class="menu-overlay">
+        <div class="menu-content">
+            <h2>MENU</h2>         
+          <!-- Bouton pour ouvrir le sélecteur -->
+<button id="open-categories" class="categories-btn"></button>
+<h3>Nos Catégories</h3>
+   <span class="close-modal">&times;</span>
     <div class="categories-list">
       <button data-category="all">Tous les produits</button>
       <button data-category="livres payants">Livres payants</button>
@@ -45,10 +44,17 @@
       <button data-category="montres">Montres</button>
       <button data-category="habillements">Habillement</button>
       <button data-category="ordinateurs">Ordinateurs</button>
+    </div><br>
+    <h3><a href="https://wa.me/243988400578?text=Bonjour%20je%20vous%20contacte%20depuis%20Lmarket%20j'ai%20besoin%20de..." target="_blank" style="background-color: #25D366; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">
+    Whatsapp
+</a></h3><br>
+  <h3><a href="avis.html" style="background-color: #1877F2; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Commentaire</a></h3><br>
+ <h3><a href="info.html" style="background-color: #1877F2; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Information</a></h3><br>
+ <h3><a href="politic.html" style="background-color: #1877F2; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Politique de confidentialité</a></h3><br>
+
+                
     </div>
-  </div>
-</div>  
-  </header> 
+    </div>    
   
 <!-- contenaire pour tous les articles -->  
   <div class="content">
