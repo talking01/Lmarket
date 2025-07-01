@@ -31,7 +31,10 @@
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
+       
 }
+
+
 #search-input {
     padding: 10px 15px;
     width: 300px;
@@ -404,4 +407,25 @@
 
 .menu-content li:hover {
     background-color: #f5f5f5;
+}
+xback-to-top-container {
+  text-align: center;
+  margin: 3px 0;
+  padding: 3px 0;
+  align-content: center;
+}
+
+.xback-to-top-btn {
+  display: inline-block;
+  padding: 5px 20px;
+  background: #3a86ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.xback-to-top-btn:hover {
+  background: #2667cc;
 }
