@@ -5,6 +5,7 @@
   <meta name="google-site-verification" content="FgHcQ5wFUlNBN3AQslm39GBsHyfwRh79CQNzNbWymXA" />
   <title>Lmarket</title>
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/abonne.css">
   <link rel="stylesheet" href="/avis.css">
   <link rel="stylesheet" href="/back.css">
   <link rel="manifest" href="/manifest.json">
@@ -86,8 +87,17 @@
 <!-- contenaire pour tous les articles -->  
   <div class="content">
     
+     <!-- abonnement au site -->  
+    <br> <div style="display: flex; justify-content: center;">
+     <button id="follow-btn">Suivre ➕</button>
+  <div id="followers-count"><a style="color: red;">attente...</a></div>
+     
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+     </div>
     
-    <br>  <section class="bio" style="text-align:center; padding: 20px; background-color: #f8f8f8; border-bottom: 1px solid #ccc;">
+    <br><section class="bio" style="text-align:center; padding: 20px; background-color: #f8f8f8; border-bottom: 1px solid #ccc;">
   <p>Bienvenue sur <strong>L.MARKET</strong><img src="/20250618_191502.png" width="15" height="15" alt="certification"></p>
       <p>Découvrez des articles de toutes sortes <strong>livres e-books, chaussures, accesoires, phones, habillements...</strong><br><a style="color:green;"><strong>Gratuits</strong></a> & <a style="color: rgb(0, 0, 255);"><strong>Payants</strong></a>
  </p>
@@ -1612,6 +1622,7 @@
   </div>  <footer>
     &copy; 2025 L.market - Tous droits réservés
   </footer>
+<script src="/abonne.js"></script>
 <script src="/script.js"></script>
 <script src="/share.js"></script>
 </body>
