@@ -13,6 +13,19 @@
 
   gtag('config', 'G-BGSDGQ543W');
 </script>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "9a4049ea-2122-4783-b33a-01af37e2f5aa",
+      safari_web_id: "web.onesignal.auto.2d34c372-40ef-4eb5-956b-2d525ea9497b",
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script>
     <style>
          * {margin: 0; padding: 0; box-sizing: border-box;}
         body {font-family: Arial, sans-serif; background: #e0eaff; color: #000;
