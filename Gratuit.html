@@ -15,17 +15,40 @@
 
   gtag('config', 'G-BGSDGQ543W');
 </script>
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+ <!-- OneSignal SDK -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "9a4049ea-2122-4783-b33a-01af37e2f5aa",
       safari_web_id: "web.onesignal.auto.2d34c372-40ef-4eb5-956b-2d525ea9497b",
+      promptOptions: {
+        slidedown: {
+          enabled: true,
+          actionMessage: "Souhaitez-vous recevoir des notifications de nouveaux articles sur Lmarket ? 📢",
+          acceptButtonText: "Oui, je m’abonne ✅",
+          cancelButtonText: "Non merci ❌"
+        }
+      },
       notifyButton: {
-        enable: true,
+        enable: false // On désactive le bouton flottant
       },
     });
+
+    // Lier le bouton personnalisé
+    const bouton = document.getElementById("bouton-push-lmarket");
+    if (bouton) {
+      bouton.addEventListener("click", async () => {
+        const isPushEnabled = await OneSignal.isPushNotificationsEnabled();
+        if (!isPushEnabled) {
+          OneSignal.showSlidedownPrompt(); // Affiche la demande d'autorisation
+        } else {
+          alert("Tu es déjà abonné(e) aux notifications 🔔 !");
+        }
+      });
+    }
   });
 </script>
 </head>
@@ -34,7 +57,9 @@
   <header>
     <!--L'en tete du site-->
     <h1><img src="20250613_003237.png" width="200" height="60" alt="Logo du site"></h1>
-    
+     <div id="zone-notification">
+  <button id="bouton-push-lmarket">🔔</button>
+</div>
         <button id="menuButton" class="menu-button">
          <span class="menu-icon"><a class="xback-to-top-btn">☰ </a></span> <!-- Icône de menu -->
         </button>

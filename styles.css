@@ -429,3 +429,25 @@ xback-to-top-container {
 .xback-to-top-btn:hover {
   background: #2667cc;
 }
+
+
+  #zone-notification {
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  #bouton-push-lmarket {
+    padding: 8px 16px;
+    background-color: #2667cc;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #bouton-push-lmarket:hover {
+    background-color: #444;
+    transform: scale(1.05);
+  }

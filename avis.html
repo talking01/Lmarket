@@ -13,17 +13,40 @@
 
   gtag('config', 'G-BGSDGQ543W');
 </script>
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <!-- OneSignal SDK -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+
 <script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function(OneSignal) {
     await OneSignal.init({
       appId: "9a4049ea-2122-4783-b33a-01af37e2f5aa",
       safari_web_id: "web.onesignal.auto.2d34c372-40ef-4eb5-956b-2d525ea9497b",
+      promptOptions: {
+        slidedown: {
+          enabled: true,
+          actionMessage: "Souhaitez-vous recevoir des notifications de nouveaux articles sur Lmarket ? 📢",
+          acceptButtonText: "Oui, je m’abonne ✅",
+          cancelButtonText: "Non merci ❌"
+        }
+      },
       notifyButton: {
-        enable: true,
+        enable: false // On désactive le bouton flottant
       },
     });
+
+    // Lier le bouton personnalisé
+    const bouton = document.getElementById("bouton-push-lmarket");
+    if (bouton) {
+      bouton.addEventListener("click", async () => {
+        const isPushEnabled = await OneSignal.isPushNotificationsEnabled();
+        if (!isPushEnabled) {
+          OneSignal.showSlidedownPrompt(); // Affiche la demande d'autorisation
+        } else {
+          alert("Tu es déjà abonné(e) aux notifications 🔔 !");
+        }
+      });
+    }
   });
 </script>
   <style>
@@ -127,11 +150,36 @@
       cursor: pointer;
       color: red;
     }
+  
+
+  #zone-notification {
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  #bouton-push-lmarket {
+    padding: 8px 16px;
+    background-color: #2667cc;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #bouton-push-lmarket:hover {
+    background-color: #444;
+    transform: scale(1.05);
+  }
   </style>
 </head>
 <body>
 <header>
   <h1><img src="20250613_003237.png" width="200" height="60" alt="Logo du site"></h1>
+     <div id="zone-notification">
+  <button id="bouton-push-lmarket">🔔</button>
+</div>
   <a href="index.html" class="info-btn">HOME</a>
 </header> <br><br><br><br>
 
