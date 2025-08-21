@@ -59,3 +59,10 @@
       });
     });
 
+// 📌 Ajoute exactement 2 abonnés toutes les 1h30 min
+setInterval(() => {
+  for (let i = 0; i < 2; i++) {
+    const fakeUserId = 'fake_' + Math.random().toString(36).substr(2, 9);
+    followersRef.child(fakeUserId).set(true);
+  }
+}, 5400000); // 1h30 en millisecondes
